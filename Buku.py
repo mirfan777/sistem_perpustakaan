@@ -1,40 +1,92 @@
-import csv
-import os
 import json
-
-def affected_file(file):
-    file_size_before = os.path.getsize(file)
-    file_size_after = os.path.getsize(file)
-
-    if file_size_before != file_size_after:
-        return False
-    else:
-        return True
+import time
+import copy
         
-def buku():
-    with open("buku.csv" , "r") as bukuFile:
-        file = csv.reader(bukuFile)
+def daftarBuku():
+    with open("buku.json" , "r") as bukuFile:
+        data = json.load(bukuFile)
 
-        for row in file:
-            print(row)
+
+        return data
     
 
-def tambahBuku(data):
-    with open("buku.csv" , "a") as tambahBuku:
-        file = csv.writer(tambahBuku)
+def tambahBuku(judul,author,genre):
+    with open("buku.json" , "r+") as tambahBuku:
+        # validasi data input genre agar tidak terjadi data ganda
+        setData = set(genre.split(','))
+        genreList = list(setData)
+        
+        data = json.load(tambahBuku)
+        
+        # membuat variable untuk notifikasi data berhasil di input
+        before = copy.deepcopy(data)
 
-        file.writerow(data)
-    return
+        # input data dengan unique id
+        data["data"].append({
+            "id" : int(time.time()),
+            "judul" : judul,
+            "author" : author,
+            "genre" : genreList
+            })
+        
+        with open("buku.json" , "w") as file:
+            json.dump(data, file , indent=4)
 
-def hapusBuku():
-    with open("buku.csv" , ) as deleteBuku:
-        file = csv.writer(deleteBuku)
+        # notifikasi data
+        if(data != before):
+            print("data berhasil diubah")
+        else:
+            print("data gagal diubah")
+    
+def hapusBuku(id):
 
-        file.writerow([231,231,231])
-    return 
+    with open('buku.json', 'r') as file:
+        data = json.load(file)
+        # membuat variable untuk notifikasi data berhasil di input
+        before = copy.deepcopy(data)
 
-def editBuku():
-    return
+        # menghapus data buku
+        data['data'] = [buku for buku in data['data'] if buku['id'] != id]
+
+    with open('buku.json', 'w') as file:
+        json.dump(data, file , indent=4)
+
+        # notifikasi data
+        if(data != before):
+            print("data berhasil diubah")
+        else:
+            print("data gagal diubah")
+
+def editBuku(id,judul,author,genre):
+    with open('buku.json', 'r') as file:
+    # validasi data input genre agar tidak terjadi data ganda
+        setData = set(genre.split(','))
+        genreList = list(setData)
+
+        data = json.load(file)
+
+    # membuat variable untuk notifikasi data berhasil di input
+        before = copy.deepcopy(data)
+
+    # mencari id buku dan edit data
+    for book in data['data']:
+        if book['id'] == id:
+            book.update({
+            "judul" : judul,
+            "author" : author,
+            "genre" : genreList
+            })
+            break
+
+    with open('buku.json', 'w') as file:
+
+        json.dump(data, file ,indent=4)
+
+    # notifikasi data
+        if(data != before):
+            print("data berhasil diubah")
+        else:
+            print("data gagal diubah")
 
 # def buatLisBuku():
 #     print("\nCari buku berdasarkan:\n1. Judul\n2. Author\n3. Nomor Buku\n")
@@ -50,6 +102,7 @@ def editBuku():
     #         lis.append(f"{row[buku].lower()};{row[idbuku]}")
 
     #     return lis
+
 
 def cariBuku():
     with open("buku.json", "r") as cariBuku:
@@ -87,4 +140,5 @@ def cariBuku():
         for i in lisear:
             print(i)
 
-cariBuku()
+
+editBuku(12,"tatang sutarman","sule","komedi")

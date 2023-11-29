@@ -1,28 +1,101 @@
 {
-    "data" : [
+    "data": [
         {
-            "id" : 1,
-            "judul" : "Ababil is not handsome",
-            "author" : "Ababil's Parents",
-            "genre" : ["romance", "adult", "18+"]
+            "id": 3,
+            "judul": "tatang sutarman",
+            "author": "sule",
+            "genre": [
+                "komedi"
+            ]
         },
         {
-            "id" : 2,
-            "judul" : "Faris not handsome",
-            "author" : "Faris's Parents",
-            "genre" : ["romance", "adult", "18+", "gjls"]
+            "id": 12,
+            "judul": "tatang sutarman",
+            "author": "sule",
+            "genre": [
+                "komedi"
+            ]
         },
         {
-            "id" : 3,
-            "judul" : "irfan not threesome",
-            "author" : "irfan's Parents",
-            "genre" : ["action", "teenagers", "18+", "13+"]
+            "id": 12123213,
+            "judul": "Ababil is not handsome",
+            "author": "Ababil's Parents",
+            "genre": [
+                "romance",
+                "adult",
+                "18+"
+            ]
         },
         {
-            "id" : 1,
-            "judul" : "Ababil is not handsome",
-            "author" : "Ababil's Parents",
-            "genre" : ["romance", "adult", "18+"]
+            "id": 12123213,
+            "judul": "Ababil is not handsome",
+            "author": "Ababil's Parents",
+            "genre": [
+                "romance",
+                "adult",
+                "18+"
+            ]
+        },
+        {
+            "id": 1701255501,
+            "judul": "asd",
+            "author": "qwe",
+            "genre": [
+                "asd",
+                "vcxz",
+                "fds"
+            ]
+        },
+        {
+            "id": 1701257190,
+            "judul": "qwe",
+            "author": "dsa",
+            "genre": [
+                "qweqe",
+                "wqe",
+                "qwe",
+                ""
+            ]
+        },
+        {
+            "id": 1701260365,
+            "judul": "qwe",
+            "author": "rew",
+            "genre": [
+                "qwe"
+            ]
+        },
+        {
+            "id": 1701260391,
+            "judul": "asd",
+            "author": "f",
+            "genre": [
+                ""
+            ]
+        },
+        {
+            "id": 1701260438,
+            "judul": "weq",
+            "author": "weq",
+            "genre": [
+                "rwe"
+            ]
+        },
+        {
+            "id": 1701260472,
+            "judul": "d",
+            "author": "sa",
+            "genre": [
+                "d"
+            ]
+        },
+        {
+            "id": 1701260476,
+            "judul": "321",
+            "author": "123",
+            "genre": [
+                "312"
+            ]
         }
     ]
 }
