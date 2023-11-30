@@ -10,7 +10,7 @@ def daftarBuku():
         return data
     
 
-def tambahBuku(judul,author,genre):
+def tambah(judul,author,genre):
     with open("buku.json" , "r+") as tambahBuku:
         # validasi data input genre agar tidak terjadi data ganda
         setData = set(genre.split(','))
@@ -38,7 +38,7 @@ def tambahBuku(judul,author,genre):
         else:
             print("data gagal diubah")
     
-def hapusBuku(id):
+def hapus(id):
 
     with open('buku.json', 'r') as file:
         data = json.load(file)
@@ -55,9 +55,9 @@ def hapusBuku(id):
         if(data != before):
             print("data berhasil diubah")
         else:
-            print("data gagal diubah")
+            print("id tidak ditemukan")
 
-def editBuku(id,judul,author,genre):
+def edit(id,judul,author,genre):
     with open('buku.json', 'r') as file:
     # validasi data input genre agar tidak terjadi data ganda
         setData = set(genre.split(','))
@@ -68,13 +68,14 @@ def editBuku(id,judul,author,genre):
     # membuat variable untuk notifikasi data berhasil di input
         before = copy.deepcopy(data)
 
+
     # mencari id buku dan edit data
     for book in data['data']:
         if book['id'] == id:
             book.update({
-            "judul" : judul,
-            "author" : author,
-            "genre" : genreList
+            "judul" : book["judul"] if judul == "" else judul,
+            "author" : book["author"] if author == "" else author,
+            "genre" : book["genre"] if genreList == [""] else genreList
             })
             break
 
@@ -140,5 +141,3 @@ def cariBuku():
         for i in lisear:
             print(i)
 
-
-editBuku(12,"tatang sutarman","sule","komedi")
