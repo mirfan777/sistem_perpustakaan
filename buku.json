@@ -2,27 +2,33 @@
     "data" : [
         {
             "id" : 1,
-            "judul" : "Ababil is not handsome",
-            "author" : "Ababil's Parents",
-            "genre" : ["romance", "adult", "18+"]
+            "judul" : "Rich Dad Poor Dad",
+            "author" : "Robert Kiyosaki",
+            "genre" : ["Economy", "Education", "Personal Development"]
         },
         {
             "id" : 2,
-            "judul" : "Faris not handsome",
-            "author" : "Faris's Parents",
-            "genre" : ["romance", "adult", "18+", "gjls"]
+            "judul" : "Cosmos",
+            "author" : "Carl Sagan",
+            "genre" : ["Astronomy", "Science", "Non-Fiction"]
         },
         {
             "id" : 3,
-            "judul" : "irfan not threesome",
-            "author" : "irfan's Parents",
-            "genre" : ["action", "teenagers", "18+", "13+"]
+            "judul" : "7 Habits of Highly Effective People",
+            "author" : "IPB",
+            "genre" : ["Education", "Personal Development"]
         },
         {
-            "id" : 1,
-            "judul" : "Ababil is not handsome",
-            "author" : "Ababil's Parents",
-            "genre" : ["romance", "adult", "18+"]
+            "id" : 4,
+            "judul" : "Sabtu Bersama Bapak",
+            "author" : "Aditya Mulya",
+            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+        },
+        {
+            "id" : 5,
+            "judul" : "Desain Grafis",
+            "author" : "TPL B",
+            "genre" : ["Non-Fiction", "Education", "Technology"]
         }
     ]
 }

@@ -36,55 +36,83 @@ def hapusBuku():
 def editBuku():
     return
 
-# def buatLisBuku():
-#     print("\nCari buku berdasarkan:\n1. Judul\n2. Author\n3. Nomor Buku\n")
-#     jenis = input("Pilihanmu : ")
+# def cariBuku():
+#     with open("buku.json", "r") as cariBuku:
+#         file = json.load(cariBuku)["data"]
+#         lis = []
+#         namaBuku = 0
+#         idBuku = 1
+#         authorBuku = 2
+#         genreBuku = 3
 
-    # with open("buku.csv", "r") as cariBuku:
-    #     file = csv.reader(cariBuku)
-    #     lis = []
-    #     buku = 1
-    #     idbuku = 0
+#         print("Cari buku berdasarkan :\n1. Judul Buku\n2. ID Buku\n3. Author/Penulis\n")
+#         filter = input("Pilihanmu : ")
 
-    #     for row in file:
-    #         lis.append(f"{row[buku].lower()};{row[idbuku]}")
+#         buku = input("\nCari : ").lower()
+#         for i in file:
+#             lis.append(f"{i['judul']};{i['id']};{i['author']};{i['genre']}")
+#         lis.sort()
 
-    #     return lis
+#         pertama = 0
+#         terakhir = len(file) - 1
+#         ada = False
+#         lisear = []
+
+#         while pertama <= terakhir and not ada:
+#             tengah = (pertama + terakhir) // 2
+#             center = lis[tengah].split(";")[0].lower()
+#             if buku in center:
+#                 ada = True
+#                 counter = 1
+#                 for i in lis:
+#                     if buku in i.lower():
+#                         lisear.append(f"{counter}. {i.split(';')[namaBuku]}\nID Buku : {i.split(';')[idBuku]} \n")
+#                         counter += 1
+#             else:
+#                 if buku < center:
+#                     terakhir = tengah - 1
+#                 else:
+#                     pertama = tengah + 1
+
+#         print("\nHasil :\n")
+#         for i in lisear:
+#             print(i)
 
 def cariBuku():
-    with open("buku.json", "r") as cariBuku:
+    with open("buku.j son", "r") as cariBuku:
         file = json.load(cariBuku)["data"]
-        lis = []
-        namaBuku = 0
-        idBuku = 1
-        buku = input("\nCari : ").lower()
-        for i in file:
-            lis.append(f"{i['judul']};{i['id']}")
-        lis.sort()
-
-        pertama = 0
-        terakhir = len(file) - 1
-        ada = False
+        counter = 1
         lisear = []
 
-        while pertama <= terakhir and not ada:
-            tengah = (pertama + terakhir) // 2
-            center = lis[tengah].lower()
-            if buku in center:
-                ada = True
-                counter = 1
-                for i in lis:
-                    if buku in i.lower():
-                        lisear.append(f"{counter}. {i.split(';')[namaBuku]}\nID Buku : {i.split(';')[idBuku]} \n")
-                        counter += 1
+        print("\nCari buku berdasarkan :\n1. Judul Buku\n2. ID Buku\n3. Author/Penulis\n")
+        while True:
+            filter = input("Pilihanmu : ")
+            if not (filter=="1" or filter=="2" or filter=="3"):
+                print("Pilihan Tidak Valid, Silahkan Coba Lagi.\n")
+                continue
             else:
-                if buku < center:
-                    terakhir = tengah - 1
-                else:
-                    pertama = tengah + 1
+                filtering = "judul" if filter=="1" else ("id" if filter=="2" else ("author"))
+                break
+
+        urutan = sorted(file, key=lambda dict:dict[filtering])
+        buku = input("\nCari : ").lower()
+
+        for i in urutan:
+            if buku in str(i[filtering]).lower():
+                lisear.append(f"{counter}. {i['judul']}\nID Buku : {i['id']}\nAuthor : {i['author']} genre : {'Tidak ada genre' if len(i['genre'])==0 else ','.join(i['genre'])}\n")
+                counter +=1
+
+        # if len(lisear)
 
         print("\nHasil :\n")
-        for i in lisear:
-            print(i)
+        if len(lisear)==0:
+            print("Tidak ditemukan.")
+        else:
+            for i in lisear:
+                print(i)
+
+def sortBuku():
+    with open("buku.json", "r") as sortBuku:
+        file = json.load(sortBuku)
 
 cariBuku()
