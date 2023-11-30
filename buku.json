@@ -4,127 +4,127 @@
             "id" : 1,
             "judul" : "Rich Dad Poor Dad",
             "author" : "Robert Kiyosaki",
-            "genre" : ["Economy", "Education", "Personal Development"]
+            "genre" : ["Economy", "Education", "Personal Development"],
+            "status" : 0
         },
         {
             "id" : 2,
             "judul" : "Cosmos",
             "author" : "Carl Sagan",
-            "genre" : ["Astronomy", "Science", "Non-Fiction"]
+            "genre" : ["Astronomy", "Science", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 3,
             "judul" : "7 Habits of Highly Effective People",
             "author" : "IPB",
-            "genre" : ["Education", "Personal Development"]
+            "genre" : ["Education", "Personal Development"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 5,
             "judul" : "Desain Grafis",
             "author" : "TPL B",
-            "genre" : ["Non-Fiction", "Education", "Technology"]
+            "genre" : ["Non-Fiction", "Education", "Technology"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         },
         {
             "id" : 4,
             "judul" : "Sabtu Bersama Bapak",
             "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
-        },
-        {
-            "id" : 4,
-            "judul" : "Sabtu Bersama Bapak",
-            "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
-        },
-        {
-            "id" : 4,
-            "judul" : "Sabtu Bersama Bapak",
-            "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
-        },
-        {
-            "id" : 4,
-            "judul" : "Minggu Bersama Bapak",
-            "author" : "Aditya Mulya",
-            "genre" : ["Family", "Personal Development", "Non-Fiction"]
+            "genre" : ["Family", "Personal Development", "Non-Fiction"],
+            "status" : 0
         }
     ]
 }
