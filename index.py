@@ -1,7 +1,8 @@
-import Buku 
+import Buku
 import Keanggotaan
 
 session = int 
+anggota = Keanggotaan.Perpustakaan()
 
 def login():
     print("-SISTEM PERPUSTAKAAN-")
@@ -9,7 +10,7 @@ def login():
     username = input("masukan username : ")
     password = input("masukan password : ")
 
-def mainMenu():
+def main_Menu():
     print("-----Menu Utama-----")
     print("--------------------")
     print("1.daftar buku")
@@ -27,31 +28,40 @@ def mainMenu():
 def admin_main_Menu():
     print("--Menu Utama Admin--")
     print("--------------------")
-    print("1.tambah buku")
-    print("2.edit buku")
-    print("3.delete buku")
-    print("4.daftar anggota")
-    print("5.tambah anggota")
-    print("6.hapus anggota")
-    print("7.keluar")
+    print("1.cari buku")
+    print("2.tambah buku")
+    print("3.edit buku")
+    print("4.delete buku")
+    print("5.daftar anggota")
+    print("6.tambah anggota")
+    print("7.hapus anggota")
+    print("8.keluar")
     pilihan = int(input("masukan pilihan anda : "))
 
     if(pilihan == 1):
-        tambahBuku()
+        search()
     elif(pilihan == 2):
-        editBuku()
+        tambahBuku()
     elif(pilihan == 3):
-        hapusBuku()
+        editBuku()
     elif(pilihan == 4):
-        daftarAnggota()
+        hapusBuku()
     elif(pilihan == 5):
-        tambahAnggot()
+        daftarAnggota()
     elif(pilihan == 6):
+        tambahAnggot()
+    elif(pilihan == 7):
         hapusAnggota()
-    elif(pilihan == 7): 
+    elif(pilihan == 8): 
         session = 0
         login()
+    else:
+        print("invalid input")
+        admin_main_Menu()
 
+
+def search():
+    Buku.cariBuku()
 
 # admin section
 def tambahBuku():
@@ -99,4 +109,15 @@ def editBuku():
     except Exception as error:
         admin_main_Menu()
 
-main_Menu()
+def daftarKeanggotaan():
+    anggota.tampilkan_anggota()
+
+def tambahKeanggotaan():
+    nama = input("Masukkan Nama: ")
+    email = input("Masukkan Email: ")
+    telepon = input("Masukkan Nomor Telepon: ")
+    username = input("Masukkan username pengguna :")
+    anggota_baru = AnggotaPerpustakaan(id_anggota, nama, email, telepon, username)
+    perpustakaan.tambah_anggota(anggota_baru)
+    
+    anggota.tambah_anggota()

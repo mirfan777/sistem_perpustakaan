@@ -26,7 +26,8 @@ def tambah(judul,author,genre):
             "id" : int(time.time()),
             "judul" : judul,
             "author" : author,
-            "genre" : genreList
+            "genre" : genreList,
+            "status" : 0
             })
         
         with open("buku.json" , "w") as file:
@@ -89,55 +90,125 @@ def edit(id,judul,author,genre):
         else:
             print("data gagal diubah")
 
-# def buatLisBuku():
-#     print("\nCari buku berdasarkan:\n1. Judul\n2. Author\n3. Nomor Buku\n")
-#     jenis = input("Pilihanmu : ")
-
-    # with open("buku.csv", "r") as cariBuku:
-    #     file = csv.reader(cariBuku)
-    #     lis = []
-    #     buku = 1
-    #     idbuku = 0
-
-    #     for row in file:
-    #         lis.append(f"{row[buku].lower()};{row[idbuku]}")
-
-    #     return lis
-
-
 def cariBuku():
     with open("buku.json", "r") as cariBuku:
         file = json.load(cariBuku)["data"]
-        lis = []
-        namaBuku = 0
-        idBuku = 1
-        buku = input("\nCari : ").lower()
-        for i in file:
-            lis.append(f"{i['judul']};{i['id']}")
-        lis.sort()
-
-        pertama = 0
-        terakhir = len(file) - 1
-        ada = False
+        counter = 1
         lisear = []
 
-        while pertama <= terakhir and not ada:
-            tengah = (pertama + terakhir) // 2
-            center = lis[tengah].lower()
-            if buku in center:
-                ada = True
-                counter = 1
-                for i in lis:
-                    if buku in i.lower():
-                        lisear.append(f"{counter}. {i.split(';')[namaBuku]}\nID Buku : {i.split(';')[idBuku]} \n")
-                        counter += 1
+        print("\nCari buku berdasarkan :\n1. Judul Buku\n2. ID Buku\n3. Author/Penulis\n")
+        while True:
+            filter = input("Pilihanmu : ")
+            if not (filter=="1" or filter=="2" or filter=="3"):
+                print("Pilihan Tidak Valid, Silahkan Coba Lagi.\n")
+                continue
             else:
-                if buku < center:
-                    terakhir = tengah - 1
-                else:
-                    pertama = tengah + 1
+                filtering = "judul" if filter=="1" else ("id" if filter=="2" else ("author"))
+                break
+
+        urutan = sorted(file, key=lambda dict:dict[filtering])
+        buku = input("\nCari : ").lower()
+
+        for i in urutan:
+            if buku in str(i[filtering]).lower():
+                lisear.append([f"{counter}. {i['judul']}\nID Buku : {i['id']}\nAuthor : {i['author']}\nstatus : {'Tersedia' if i['status']==0 else 'Dipinjam'}\ngenre : {'Tidak ada genre' if len(i['genre'])==0 else ','.join(i['genre'])}\n", i["id"]])
+                counter +=1
 
         print("\nHasil :\n")
-        for i in lisear:
-            print(i)
+        if len(lisear)==0:
+            print("Tidak ditemukan.")
+        else:
+            if len(lisear)<=10:
+                for i in lisear:
+                    print(i[0])
+            else:
+                awal = 0
+                akhir = 10
+                buka = False
+                while True:
+                    for i in lisear[awal:akhir]:
+                        print(i[0])
+                    print("\nN untuk Next, B untuk Back, E untuk exit\n")
+                    pagi = input("Pilihanmu : ").lower()
+                    salah = False
+                    if pagi == "n":
+                        if len(lisear)-akhir <= 0:
+                            print("Sudah Page Akhir\n")
+                            salah = True
+                        else:
+                            awal += 10
+                            akhir += 10
+                    elif pagi == "b" :
+                        if awal == 0:
+                            print("Sudah Page Awal\n")
+                            salah = True
+                        else:
+                            awal -= 10
+                            akhir -= 10
+                    elif pagi == "e":
+                        break
+                    else:
+                        for i in lisear:
+                            if pagi == i[0][len(pagi)-1]:
+                                bukaBuku(i[1])
+                                buka = True
+                                break
+                        if buka:
+                            break
+                        print("Pilihan tidak valid.\n")
+
+                    while salah :
+                        pagi = input("Pilihanmu : ")
+                        if pagi == "n":
+                            if len(lisear)-akhir <= 0:
+                                print("Sudah Page Akhir\n")
+                            else:
+                                awal += 10
+                                akhir += 10
+                                salah = False
+                        elif pagi == "b" :
+                            if awal == 0:
+                                print("Sudah Page Awal\n")
+                            else:
+                                awal -= 10
+                                akhir -= 10
+                                salah = False
+                        elif pagi == "e":
+                            break
+                        else:
+                            for i in lisear:
+                                if pagi == i[0][len(pagi)-1]:
+                                    bukaBuku(i[1])
+                                    buka = True
+                                    break
+                            if buka:
+                                break
+                            print("Pilihan tidak valid.\n")
+                            
+                    if pagi == "e":
+                        break
+                    # print(i[0][len(pagi)-1])
+
+def sortBuku():
+    with open("buku.json", "r") as sortBuku:
+        file = json.load(sortBuku)
+
+def bukaBuku(id):
+    with open("buku.json" , "r") as bukaBuku:
+        file = json.load(bukaBuku)["data"]
+        for i in file:
+            if id == i["id"]:
+                print(f"\nJudul Buku : {i['judul']}\nID Buku : {i['id']}\nAuthor : {i['author']}\nstatus : {'Tersedia' if i['status']==0 else 'Dipinjam'}\ngenre : {'Tidak ada genre' if len(i['genre'])==0 else ','.join(i['genre'])}\n\n(P untuk pinjam, E untuk exit)\n")
+                while True:
+                    pinjam = input("Pilihanmu : ").lower()
+                    if pinjam == "p":
+                        if i['status'] == 1:
+                            print("Buku sedang dipinjam orang lain")
+                        else:
+                            print("Buku Berhasil Dipinjam!!\nTenggat waktu adalah 7 hari dari sekarang!\n")
+                            break
+                    elif pinjam == "e":
+                        break
+                    else:
+                        "Pilihan Tidak Valid"
 

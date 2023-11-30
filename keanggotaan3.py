@@ -1,15 +1,12 @@
 import json
-import time
 
 class AnggotaPerpustakaan:
-    def __init__(self, id_anggota, nama, email, telepon, username ,password , role):
+    def __init__(self, id_anggota, nama, email, telepon, username):
         self.id_anggota = id_anggota
         self.nama = nama
         self.email = email
         self.telepon = telepon
         self.username = username
-        self.password = password
-        self.role = role
 
 class Perpustakaan:
     def __init__(self, json_file="anggota.json"):
@@ -32,13 +29,11 @@ class Perpustakaan:
             data = []
             for anggota in self.daftar_anggota:
                 data.append({
-                    'id_anggota': int(time.time()),
+                    'id_anggota': anggota.id_anggota,
                     'nama': anggota.nama,
                     'email': anggota.email,
                     'telepon': anggota.telepon,
-                    'username': anggota.username,
-                    'password': anggota.password,
-                    'role': 0
+                    'username': anggota.username
                 })
             json.dump(data, file, indent=2)
 
@@ -74,50 +69,50 @@ class Perpustakaan:
             print(f"ID: {anggota.id_anggota}, Nama: {anggota.nama}, email: {anggota.email}, Telepon: {anggota.telepon}, Username: {anggota.username}")
             
 
-# # Inisialisasi objek perpustakaan
-# perpustakaan = Perpustakaan()
+# Inisialisasi objek perpustakaan
+perpustakaan = Perpustakaan()
 
-# while True:
-#     print("\nPilih Operasi:")
-#     print("1. Tambah Anggota")
-#     print("2. Hapus Anggota")
-#     print("3. Edit Data Anggota")
-#     print("4. Tampilkan Daftar Anggota")
-#     print("0. Keluar")
+while True:
+    print("\nPilih Operasi:")
+    print("1. Tambah Anggota")
+    print("2. Hapus Anggota")
+    print("3. Edit Data Anggota")
+    print("4. Tampilkan Daftar Anggota")
+    print("0. Keluar")
 
-#     pilihan = input("Masukkan pilihan (0-4): ")
+    pilihan = input("Masukkan pilihan (0-4): ")
 
-#     if pilihan == "1":
-#         id_anggota = (input("Masukkan ID Anggota: "))
-#         nama = input("Masukkan Nama: ")
-#         email = input("Masukkan Email: ")
-#         telepon = input("Masukkan Nomor Telepon: ")
-#         username = input("Masukkan username pengguna :")
-#         anggota_baru = AnggotaPerpustakaan(id_anggota, nama, email, telepon, username)
-#         perpustakaan.tambah_anggota(anggota_baru)
+    if pilihan == "1":
+        id_anggota = (input("Masukkan ID Anggota: "))
+        nama = input("Masukkan Nama: ")
+        email = input("Masukkan Email: ")
+        telepon = input("Masukkan Nomor Telepon: ")
+        username = input("Masukkan username pengguna :")
+        anggota_baru = AnggotaPerpustakaan(id_anggota, nama, email, telepon, username)
+        perpustakaan.tambah_anggota(anggota_baru)
 
-#     elif pilihan == "2":
-#         id_anggota = int(input("Masukkan ID Anggota yang akan dihapus: "))
-#         perpustakaan.hapus_anggota(id_anggota)
+    elif pilihan == "2":
+        id_anggota = int(input("Masukkan ID Anggota yang akan dihapus: "))
+        perpustakaan.hapus_anggota(id_anggota)
 
-#     elif pilihan == "3":
-#         id_anggota = (input("Masukkan ID Anggota yang akan diubah: "))
-#         nama = input("Masukkan Nama Baru: ")
-#         email = input("Masukkan email Baru: ")
-#         telepon = int(input("Masukkan Nomor Telepon Baru: "))
-#         username = input("Masukkan Username Baru: ")
-#         perpustakaan.edit_anggota(id_anggota, nama, email, telepon, username)
+    elif pilihan == "3":
+        id_anggota = (input("Masukkan ID Anggota yang akan diubah: "))
+        nama = input("Masukkan Nama Baru: ")
+        email = input("Masukkan email Baru: ")
+        telepon = int(input("Masukkan Nomor Telepon Baru: "))
+        username = input("Masukkan Username Baru: ")
+        perpustakaan.edit_anggota(id_anggota, nama, email, telepon, username)
         
-#         if not email.endswith('@gmail.com'):
-#             print("Email harus diakhiri dengan '@gmail.com'. Perubahan dibatalkan.")
-#             continue
+        if not email.endswith('@gmail.com'):
+            print("Email harus diakhiri dengan '@gmail.com'. Perubahan dibatalkan.")
+            continue
 
-#     elif pilihan == "4":
-#         perpustakaan.tampilkan_anggota()
+    elif pilihan == "4":
+        perpustakaan.tampilkan_anggota()
 
-#     elif pilihan == "0":
-#         print("Program selesai.")
-#         break
+    elif pilihan == "0":
+        print("Program selesai.")
+        break
 
-#     else:
-#         print("Pilihan tidak valid. Silakan coba lagi.")
+    else:
+        print("Pilihan tidak valid. Silakan coba lagi.")
