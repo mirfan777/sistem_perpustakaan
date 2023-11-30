@@ -99,4 +99,4 @@ def editBuku():
     except Exception as error:
         admin_main_Menu()
 
-admin_main_Menu()
+main_Menu()
